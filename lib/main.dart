@@ -138,132 +138,97 @@ class _MyHomePageState extends State<MyHomePage> {
     return new Drawer(
         child: new ListView(
           children: <Widget>[
-          new ListTileTheme(
-              selectedColor: Colors.red,
+          new Container(
+            child: new MaterialButton(
+              minWidth: double.maxFinite,
+              height: 50.0,
+              child: new Text('HOME', style: new TextStyle(color: Colors.red, fontSize: 20.0, fontWeight: FontWeight.bold)),
               textColor: Colors.white,
-              child: new Container(
-                child: new ListTile(
-                    title: new Text('HOME',
-                        textAlign: TextAlign.center,
-                        style: new TextStyle(
-                            color: Colors.red,
-                            fontSize: 20.0,
-                            fontStyle: FontStyle.normal,
-                            fontWeight: FontWeight.bold)),
-                    contentPadding: EdgeInsets.all(0.10)),
-                decoration: const BoxDecoration(
-                    border: const Border(
-                        bottom: const BorderSide(
-                            width: 1.0, color: Colors.black54))),
-              )),
-          new ListTileTheme(
-              selectedColor: Colors.red,
+              onPressed: () {}
+            ),
+            decoration: const BoxDecoration(
+                  border: const Border(
+                      bottom: const BorderSide(
+                          width: 1.0, color: Colors.black87))),
+          ),
+          new Container(
+            child: new MaterialButton(
+              minWidth: double.maxFinite,
+              height: 50.0,
+              child: new Text('MEMBER LOGIN', style: new TextStyle(color: Colors.red, fontSize: 20.0, fontWeight: FontWeight.bold)),
               textColor: Colors.white,
-              child: new Container(
-                child: new ListTile(
-                    title: new Text('MEMBER LOGIN',
-                        textAlign: TextAlign.center,
-                        style: new TextStyle(
-                            color: Colors.red,
-                            fontSize: 20.0,
-                            fontStyle: FontStyle.normal,
-                            fontWeight: FontWeight.bold)),
-                    contentPadding: EdgeInsets.all(0.10)),
-                decoration: const BoxDecoration(
-                    border: const Border(
-                        bottom: const BorderSide(
-                            width: 1.0, color: Colors.black54))),
-              )),
-          new ListTileTheme(
-              selectedColor: Colors.red,
+              onPressed: () {}
+            ),
+            decoration: const BoxDecoration(
+                  border: const Border(
+                      bottom: const BorderSide(
+                          width: 1.0, color: Colors.black87))),
+          ),
+          new Container(
+            child: new MaterialButton(
+              minWidth: double.maxFinite,
+              height: 50.0,
+              child: new Text('FIND A PROVIDER', style: new TextStyle(color: Colors.red, fontSize: 20.0, fontWeight: FontWeight.bold)),
               textColor: Colors.white,
-              child: new Container(
-                child: new ListTile(
-                    title: new Text('FIND A PROVIDER',
-                        textAlign: TextAlign.center,
-                        style: new TextStyle(
-                            color: Colors.red,
-                            fontSize: 20.0,
-                            fontStyle: FontStyle.normal,
-                            fontWeight: FontWeight.bold)),
-                    contentPadding: EdgeInsets.all(0.10)),
-                decoration: const BoxDecoration(
-                    border: const Border(
-                        bottom: const BorderSide(
-                            width: 1.0, color: Colors.black54))),
-              )),
-          new ListTileTheme(
-              selectedColor: Colors.red,
+              onPressed: () {}
+            ),
+            decoration: const BoxDecoration(
+                  border: const Border(
+                      bottom: const BorderSide(
+                          width: 1.0, color: Colors.black87))),
+          ),
+          new Container(
+            child: new MaterialButton(
+              minWidth: double.maxFinite,
+              height: 50.0,
+              child: new Text('CONTACT US', style: new TextStyle(color: Colors.red, fontSize: 20.0, fontWeight: FontWeight.bold)),
               textColor: Colors.white,
-              child: new Container(
-                child: new ListTile(
-                    title: new Text('CONTACT US',
-                        textAlign: TextAlign.center,
-                        style: new TextStyle(
-                            color: Colors.red,
-                            fontSize: 20.0,
-                            fontStyle: FontStyle.normal,
-                            fontWeight: FontWeight.bold)),
-                    contentPadding: EdgeInsets.all(0.10)),
-                decoration: const BoxDecoration(
-                    border: const Border(
-                        bottom: const BorderSide(
-                            width: 1.0, color: Colors.black54))),
-              )),
-          new ListTileTheme(
-              selectedColor: Colors.red,
+              onPressed: () {}
+            ),
+            decoration: const BoxDecoration(
+                  border: const Border(
+                      bottom: const BorderSide(
+                          width: 1.0, color: Colors.black87))),
+          ),
+          new Container(
+            child: new MaterialButton(
+              minWidth: double.maxFinite,
+              height: 50.0,
+              child: new Text('SETTINGS', style: new TextStyle(color: Colors.red, fontSize: 20.0, fontWeight: FontWeight.bold)),
               textColor: Colors.white,
-              child: new Container(
-                child: new ListTile(
-                    title: new Text('SETTINGS',
-                        textAlign: TextAlign.center,
-                        style: new TextStyle(
-                            color: Colors.red,
-                            fontSize: 20.0,
-                            fontStyle: FontStyle.normal,
-                            fontWeight: FontWeight.bold)),
-                    contentPadding: EdgeInsets.all(0.10)),
-                decoration: const BoxDecoration(
-                    border: const Border(
-                        bottom: const BorderSide(
-                            width: 1.0, color: Colors.black54))),
-              )),
-          new ListTileTheme(
-              selectedColor: Colors.red,
+              onPressed: () {}
+            ),
+            decoration: const BoxDecoration(
+                  border: const Border(
+                      bottom: const BorderSide(
+                          width: 1.0, color: Colors.black87))),
+          ),
+          new Container(
+            child: new MaterialButton(
+              minWidth: double.maxFinite,
+              height: 50.0,
+              child: new Text('SIGNUP', style: new TextStyle(color: Colors.red, fontSize: 20.0, fontWeight: FontWeight.bold)),
               textColor: Colors.white,
-              child: new Container(
-                child: new ListTile(
-                    title: new Text('SIGNUP',
-                        textAlign: TextAlign.center,
-                        style: new TextStyle(
-                            color: Colors.red,
-                            fontSize: 20.0,
-                            fontStyle: FontStyle.normal,
-                            fontWeight: FontWeight.bold)),
-                    contentPadding: EdgeInsets.all(0.10)),
-                decoration: const BoxDecoration(
-                    border: const Border(
-                        bottom: const BorderSide(
-                            width: 1.0, color: Colors.black54))),
-              )),
-          new ListTileTheme(
-              selectedColor: Colors.red,
+              onPressed: () {}
+            ),
+            decoration: const BoxDecoration(
+                  border: const Border(
+                      bottom: const BorderSide(
+                          width: 1.0, color: Colors.black87))),
+          ),
+          new Container(
+            child: new MaterialButton(
+              minWidth: double.maxFinite,
+              height: 50.0,
+              child: new Text('LOGOUT', style: new TextStyle(color: Colors.red, fontSize: 20.0, fontWeight: FontWeight.bold)),
               textColor: Colors.white,
-              child: new Container(
-                child: new ListTile(
-                    title: new Text('LOGOUT',
-                        textAlign: TextAlign.center,
-                        style: new TextStyle(
-                            color: Colors.red,
-                            fontSize: 20.0,
-                            fontStyle: FontStyle.normal,
-                            fontWeight: FontWeight.bold)),
-                    contentPadding: EdgeInsets.all(0.10)),
-                decoration: const BoxDecoration(
-                    border: const Border(
-                        bottom: const BorderSide(
-                            width: 1.0, color: Colors.black54))),
-              ))
+              onPressed: () {}
+            ),
+            decoration: const BoxDecoration(
+                  border: const Border(
+                      bottom: const BorderSide(
+                          width: 1.0, color: Colors.black87))),
+          )
         ],
       ));
   }
