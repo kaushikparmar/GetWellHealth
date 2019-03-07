@@ -67,18 +67,34 @@ Widget body() {
             child: new Text('Enter your zipcode below', style: new TextStyle(color: Colors.black54, fontSize: 22.0))
           ),
           new Container(
-            child: new MaterialButton(
-                minWidth: double.maxFinite,
+            child: new Row(
+              // crossAxisAlignment: CrossAxisAlignment.center,
+              // mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new TextField(
+                  decoration: InputDecoration.collapsed(hintText: 'Zip Code'),
+                ),
+                new MaterialButton(
+                minWidth: 50.0,
                 height: 50.0,
-                child: new Text('FIND A PROVIDER',
-                    style: new TextStyle(color: Colors.white, fontSize: 20.0)),
+                child: new Image.asset('assets/images/locationPointer.png', height: 25.0),
                 color: Colors.red,
                 textColor: Colors.white,
                 onPressed: () {}),
-            decoration: const BoxDecoration(
-                border: const Border(
-                    bottom: const BorderSide(width: 1.0, color: Colors.black87),
-                    top: const BorderSide(width: 1.0, color: Colors.black87))),
+              ],
+            )
+            // child: new MaterialButton(
+            //     minWidth: double.maxFinite,
+            //     height: 50.0,
+            //     child: new Text('FIND A PROVIDER',
+            //         style: new TextStyle(color: Colors.white, fontSize: 20.0)),
+            //     color: Colors.red,
+            //     textColor: Colors.white,
+            //     onPressed: () {}),
+            // decoration: const BoxDecoration(
+            //     border: const Border(
+            //         bottom: const BorderSide(width: 1.0, color: Colors.black87),
+            //         top: const BorderSide(width: 1.0, color: Colors.black87))),
           )
         ],
       ),
