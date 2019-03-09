@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:splashscreen/splashscreen.dart';
 import 'home.dart';
 import 'find-a-provider.dart';
 
@@ -16,9 +17,24 @@ class MyApp extends StatelessWidget {
       // home: new MyHomePage(),
       initialRoute: '/',
       routes: {
-        '/': (context) => MyHomePage(title: 'Careington'),
+        '/': (context) => AfterSplash(),
+        'home': (context) => MyHomePage(title: 'Careington'),
         'find-a-provider': (context) => FindAProvider(title: 'FindAProvider')
       }
+    );
+  }
+}
+
+
+class AfterSplash extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new SplashScreen(
+      seconds: 5,
+      navigateAfterSeconds: new FindAProvider(title: 'Careington'),
+      imageBackground: AssetImage('assets/images/splash.png'),
+      backgroundColor: Colors.white,
+      loaderColor: Colors.red,
     );
   }
 }

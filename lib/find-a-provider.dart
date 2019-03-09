@@ -52,52 +52,66 @@ class _FindAProvider extends State<FindAProvider> {
 // Body Widget
 Widget body() {
   return new Container(
+    alignment: Alignment.center,
     decoration: BoxDecoration(
         image: DecorationImage(
-            fit: BoxFit.fitHeight, image: AssetImage('assets/images/bg.png'))),
-    child: new Center(
-      child: new Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          new Container(
-            child: new Text('FIND A PROVIDER', style: new TextStyle(color: Colors.red, fontSize: 22.0))
-          ),
-          new Container(
-            child: new Text('Enter your zipcode below', style: new TextStyle(color: Colors.black54, fontSize: 22.0))
-          ),
-          new Container(
-            child: new Row(
-              // crossAxisAlignment: CrossAxisAlignment.center,
-              // mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                new TextField(
-                  decoration: InputDecoration.collapsed(hintText: 'Zip Code'),
-                ),
-                new MaterialButton(
-                minWidth: 50.0,
-                height: 50.0,
-                child: new Image.asset('assets/images/locationPointer.png', height: 25.0),
-                color: Colors.red,
-                textColor: Colors.white,
-                onPressed: () {}),
-              ],
+            fit: BoxFit.cover, image: AssetImage('assets/images/bg.png'))),
+    child: new Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        new Container(
+          alignment: Alignment.center,
+          height: 100.0,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            border: Border.all(
+              color: Colors.black,
+              width: 1.0,
             )
-            // child: new MaterialButton(
-            //     minWidth: double.maxFinite,
-            //     height: 50.0,
-            //     child: new Text('FIND A PROVIDER',
-            //         style: new TextStyle(color: Colors.white, fontSize: 20.0)),
-            //     color: Colors.red,
-            //     textColor: Colors.white,
-            //     onPressed: () {}),
-            // decoration: const BoxDecoration(
-            //     border: const Border(
-            //         bottom: const BorderSide(width: 1.0, color: Colors.black87),
-            //         top: const BorderSide(width: 1.0, color: Colors.black87))),
-          )
-        ],
-      ),
-    ),
+          ),
+          child: new Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+                new Container(
+                  child: new Text('FIND A PROVIDER', style: new TextStyle(color: Colors.red, fontSize: 22.0, fontWeight: FontWeight.bold)),
+                  margin: EdgeInsets.all(8.0),
+                ),
+                new Container(
+                  child: new Text('Enter your zipcode below', style: new TextStyle(color: Colors.black54, fontSize: 22.0))
+                ),
+              ],
+            ),
+        ),
+        new Container(
+          alignment: Alignment.center,
+          // height: 50.0,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            border: Border.all(
+              color: Colors.black,
+              width: 1.0,
+            )
+          ),
+          child: new Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+                new Container(
+                  child: new TextFormField(
+                    decoration: InputDecoration(hintText: 'Zip Code', border: InputBorder.none),
+                    textAlign: TextAlign.center,
+                    keyboardType: TextInputType.number,
+                    cursorColor: Colors.black45,
+                    maxLength: 5,
+                    maxLines: 1,
+                  ),
+                )
+              ],
+            ),
+        )
+      ],
+    )
   );
 }
