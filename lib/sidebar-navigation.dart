@@ -1,7 +1,22 @@
 import 'package:flutter/material.dart';
 
-// class SidebarNavigation {
- Widget navigationDrawer() {
+
+class SidebarNavigation extends StatefulWidget {
+  @override
+  _SidebarNavigationState createState() => new _SidebarNavigationState();
+}
+
+
+class _SidebarNavigationState extends State<SidebarNavigation> {
+  String currentRoute = '';
+  void _handleItemSelection() {
+    setState(() {
+      var RO = new RouteObserver();
+      // RO.subscribe(routeAware, route)
+    });
+  }
+
+ Widget navigationDrawer(BuildContext context) {
     return new Drawer(
         child: new ListView(
           children: <Widget>[
@@ -11,12 +26,15 @@ import 'package:flutter/material.dart';
               height: 50.0,
               child: new Text('HOME', style: new TextStyle(color: Colors.red, fontSize: 20.0, fontWeight: FontWeight.bold)),
               textColor: Colors.white,
-              onPressed: () {}
+              onPressed: () {
+                Navigator.pushNamed(context, '/home');
+                this._handleItemSelection();
+              }
             ),
             decoration: const BoxDecoration(
                   border: const Border(
                       bottom: const BorderSide(
-                          width: 1.0, color: Colors.black87))),
+                          width: 1.0, color: Colors.black54))),
           ),
           new Container(
             child: new MaterialButton(
@@ -29,7 +47,7 @@ import 'package:flutter/material.dart';
             decoration: const BoxDecoration(
                   border: const Border(
                       bottom: const BorderSide(
-                          width: 1.0, color: Colors.black87))),
+                          width: 1.0, color: Colors.black54))),
           ),
           new Container(
             child: new MaterialButton(
@@ -37,12 +55,14 @@ import 'package:flutter/material.dart';
               height: 50.0,
               child: new Text('FIND A PROVIDER', style: new TextStyle(color: Colors.red, fontSize: 20.0, fontWeight: FontWeight.bold)),
               textColor: Colors.white,
-              onPressed: () {}
+              onPressed: () {
+                Navigator.pushNamed(context, '/find-a-provider');
+              }
             ),
             decoration: const BoxDecoration(
                   border: const Border(
                       bottom: const BorderSide(
-                          width: 1.0, color: Colors.black87))),
+                          width: 1.0, color: Colors.black54))),
           ),
           new Container(
             child: new MaterialButton(
@@ -55,7 +75,7 @@ import 'package:flutter/material.dart';
             decoration: const BoxDecoration(
                   border: const Border(
                       bottom: const BorderSide(
-                          width: 1.0, color: Colors.black87))),
+                          width: 1.0, color: Colors.black54))),
           ),
           new Container(
             child: new MaterialButton(
@@ -68,7 +88,7 @@ import 'package:flutter/material.dart';
             decoration: const BoxDecoration(
                   border: const Border(
                       bottom: const BorderSide(
-                          width: 1.0, color: Colors.black87))),
+                          width: 1.0, color: Colors.black54))),
           ),
           new Container(
             child: new MaterialButton(
@@ -81,7 +101,7 @@ import 'package:flutter/material.dart';
             decoration: const BoxDecoration(
                   border: const Border(
                       bottom: const BorderSide(
-                          width: 1.0, color: Colors.black87))),
+                          width: 1.0, color: Colors.black54))),
           ),
           new Container(
             child: new MaterialButton(
@@ -94,9 +114,15 @@ import 'package:flutter/material.dart';
             decoration: const BoxDecoration(
                   border: const Border(
                       bottom: const BorderSide(
-                          width: 1.0, color: Colors.black87))),
+                          width: 1.0, color: Colors.black54))),
           )
         ],
       ));
   }
-// }
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return null;
+  }
+}

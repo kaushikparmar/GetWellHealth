@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Careington',
       theme: new ThemeData(
         primarySwatch: Colors.red
       ),
@@ -18,8 +18,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => AfterSplash(),
-        'home': (context) => MyHomePage(title: 'Careington'),
-        'find-a-provider': (context) => FindAProvider(title: 'FindAProvider')
+        '/home': (context) => MyHomePage(title: 'Careington'),
+        '/find-a-provider': (context) => FindAProvider(title: 'FindAProvider')
       }
     );
   }
@@ -31,7 +31,7 @@ class AfterSplash extends StatelessWidget {
   Widget build(BuildContext context) {
     return new SplashScreen(
       seconds: 5,
-      navigateAfterSeconds: new FindAProvider(title: 'Careington'),
+      navigateAfterSeconds: new MyHomePage(title: 'Careington'),
       imageBackground: AssetImage('assets/images/splash.png'),
       backgroundColor: Colors.white,
       loaderColor: Colors.red,

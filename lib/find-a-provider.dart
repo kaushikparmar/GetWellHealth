@@ -42,7 +42,7 @@ class _FindAProvider extends State<FindAProvider> {
         centerTitle: false,
         backgroundColor: Colors.white,
       ),
-      drawer: navigationDrawer(),
+      drawer: navigationDrawer(context),
       body: body(),
       bottomNavigationBar: footer(context),
     );
@@ -66,7 +66,7 @@ Widget body() {
           decoration: BoxDecoration(
             color: Colors.white,
             border: Border.all(
-              color: Colors.black,
+              color: Colors.black54,
               width: 1.0,
             )
           ),
@@ -89,27 +89,50 @@ Widget body() {
           // height: 50.0,
           decoration: BoxDecoration(
             color: Colors.white,
-            border: Border.all(
-              color: Colors.black,
-              width: 1.0,
-            )
+            border: Border(bottom: BorderSide(color: Colors.black54))
           ),
-          child: new Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: new Row(
+            // crossAxisAlignment: CrossAxisAlignment.center,
+            // mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-                new Container(
+                Expanded(
                   child: new TextFormField(
-                    decoration: InputDecoration(hintText: 'Zip Code', border: InputBorder.none),
+                    decoration: InputDecoration(
+                      hintText: 'Zip Code',
+                      border: InputBorder.none
+                    ),
                     textAlign: TextAlign.center,
                     keyboardType: TextInputType.number,
                     cursorColor: Colors.black45,
-                    maxLength: 5,
+                    // maxLength: 5,
                     maxLines: 1,
                   ),
+                ),
+                new MaterialButton(
+                      child: Image.asset('assets/images/locationPointer.png', height: 40.0,),
+                      minWidth: 50.0,
+                      height: 50.0,
+                      color: Colors.red,
+                      onPressed: (){},
                 )
               ],
             ),
+        ),
+        new Container(
+          child: new MaterialButton(
+              minWidth: double.maxFinite,
+              height: 50.0,
+              child: new Text('FIND A PROVIDER',
+                  style: new TextStyle(color: Colors.white, fontSize: 20.0)),
+              color: Colors.red,
+              textColor: Colors.white,
+              onPressed: () {}),
+          decoration: const BoxDecoration(
+              border: const Border(
+                  bottom: const BorderSide(width: 1.0, color: Colors.black54),
+                  // top: const BorderSide(width: 1.0, color: Colors.black54)
+              )
+          ),
         )
       ],
     )

@@ -43,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
         centerTitle: false,
         backgroundColor: Colors.white,
       ),
-      drawer: navigationDrawer(),
+      drawer: navigationDrawer(context),
       body: body(context),
       bottomNavigationBar: footer(context),
     );
@@ -98,10 +98,7 @@ Widget body(context) {
                 color: Colors.red,
                 textColor: Colors.white,
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => FindAProvider()),
-                  );
+                  Navigator.pushNamed(context, '/find-a-provider');
                 }),
             decoration: const BoxDecoration(
                 border: const Border(

@@ -12,8 +12,13 @@ Widget footer(context) {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         new Container(
-            child: new Image.asset('assets/images/home-red.png', height: 35.0)
-            ),
+            child: new MaterialButton(
+              child: new Image.asset('assets/images/home-red.png', height: 35.0),
+              onPressed: () { 
+                  Navigator.pushNamed(context, '/home');
+              },
+            )
+          ),
         new Container(
             child: new Image.asset('assets/images/edit.png', height: 35.0)
             ),
@@ -32,7 +37,7 @@ Widget footer(context) {
                 }
               },
             )
-            )
+          )
       ],
     ),
   );
