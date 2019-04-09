@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+
 import 'sidebar-navigation.dart';
 import 'footer.dart';
-import 'find-a-provider.dart';
-
+import 'in-app-browser.dart';
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
@@ -43,12 +43,13 @@ class _MyHomePageState extends State<MyHomePage> {
         centerTitle: false,
         backgroundColor: Colors.white,
       ),
-      drawer: navigationDrawer(context),
+      drawer: SidebarNavigation(ModalRoute.of(context).settings.name),
       body: body(context),
       bottomNavigationBar: footer(context),
     );
   }
 }
+
 
 // Body Widget
 Widget body(context) {
@@ -69,7 +70,10 @@ Widget body(context) {
                     style: new TextStyle(color: Colors.white, fontSize: 20.0)),
                 color: Colors.red,
                 textColor: Colors.white,
-                onPressed: () {}),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/login');
+                }
+                ),
             decoration: const BoxDecoration(
                 border: const Border(
                     bottom: const BorderSide(width: 1.0, color: Colors.black87),
@@ -83,7 +87,9 @@ Widget body(context) {
                     style: new TextStyle(color: Colors.white, fontSize: 20.0)),
                 color: Colors.red,
                 textColor: Colors.white,
-                onPressed: () {}),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/registration');
+                }),
             decoration: const BoxDecoration(
                 border: const Border(
                     bottom:
@@ -98,7 +104,7 @@ Widget body(context) {
                 color: Colors.red,
                 textColor: Colors.white,
                 onPressed: () {
-                  Navigator.pushNamed(context, '/find-a-provider');
+                  Navigator.pushNamed(context, '/current-prospective-member');
                 }),
             decoration: const BoxDecoration(
                 border: const Border(
@@ -107,13 +113,17 @@ Widget body(context) {
           ),
           new Container(
             child: new MaterialButton(
-                minWidth: double.maxFinite,
-                height: 50.0,
-                child: new Text('SIGN UP',
-                    style: new TextStyle(color: Colors.white, fontSize: 20.0)),
-                color: Colors.red,
-                textColor: Colors.white,
-                onPressed: () {}),
+                  minWidth: double.maxFinite,
+                  height: 50.0,
+                  child: new Text('SIGN UP',
+                      style: new TextStyle(color: Colors.white, fontSize: 20.0)),
+                  color: Colors.red,
+                  textColor: Colors.white,
+                  onPressed: () { 
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => new InAppBrowser("https://www1.careington.com/mobile/search.aspx")));
+                    // Following Line is commented due to issue on passing the data on Named Route
+                    // Navigator.pushNamed(context, '/in-app-browser', arguments: <String, String> { "url": "https://www1.careington.com/mobile/search.aspx"}); 
+                  }),
             decoration: const BoxDecoration(
                 border: const Border(
                     bottom:
