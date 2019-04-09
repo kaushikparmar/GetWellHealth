@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:splashscreen/splashscreen.dart';
 import 'home.dart';
 import 'find-a-provider.dart';
@@ -10,7 +11,13 @@ import 'in-app-browser.dart';
 // Register the RouteObserver as a navigation observer.
 final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
 
-void main() => runApp(new MyApp());
+void main() {
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    systemNavigationBarColor: Colors.red, // navigation bar color
+    statusBarColor: Colors.red, // status bar color
+  ));
+  runApp(new MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.

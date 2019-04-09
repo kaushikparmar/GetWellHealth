@@ -63,8 +63,10 @@ class _SidebarNavigationState extends State<SidebarNavigation> {
             decoration: const BoxDecoration(
                   borderRadius: BorderRadius.zero,
                   border: const Border(
-                      bottom: const BorderSide(
-                          width: 1.0, color: Colors.black54))),
+                    top: const BorderSide(width: 1.0, color: Colors.black54),
+                    bottom: const BorderSide(width: 1.0, color: Colors.black54)
+                  )
+            ),
           ),
           new Container(
             child: new MaterialButton(

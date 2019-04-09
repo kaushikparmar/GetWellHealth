@@ -1,5 +1,7 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 import 'sidebar-navigation.dart';
 import 'footer.dart';
 import 'in-app-browser.dart';
@@ -33,10 +35,19 @@ class _Registration extends State<Registration> {
   }
 }
 
+_launchURL(url) async {
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+
 // Body Widget
 Widget body(context) {
   return new Container(
-    child: new Column(
+    child: new ListView(
       // crossAxisAlignment: CrossAxisAlignment.center,
       // mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
@@ -69,16 +80,32 @@ Widget body(context) {
                     text: TextSpan(
                       children: <TextSpan> [
                         TextSpan(
-                          style: new TextStyle(color: Colors.black54, fontSize: 20.0),
+                          style: new TextStyle(color: Colors.black54, fontSize: 15.0),
                           text: 'If you have already created your account through the ',
                         ),
                         TextSpan(
-                          style: new TextStyle(color: Colors.red, fontSize: 20.0),
+                          style: new TextStyle(color: Colors.red, fontSize: 15.0),
                           text: 'Careington Member Portal ',
                           recognizer: new TapGestureRecognizer()..onTap = () => {
                             Navigator.push(context, MaterialPageRoute(builder: (context) => new InAppBrowser("https://member.careington.com")))
                             // Following Line is commented due to issue on passing the data on Named Route
                             // Navigator.pushNamed(context, '/in-app-browser', arguments: <String, String> { "url": "https://member.careington.com"})
+                          },
+                        ),
+                        TextSpan(
+                          style: new TextStyle(color: Colors.black54, fontSize: 15.0),
+                          text: ', please use your account information to log in. \n\nIf you have not created your account yet, please enter your information below to create your account. Your member ID will be printed on your fulfillment kit and your member ID Card.',
+                        ),
+                        TextSpan(
+                          style: new TextStyle(color: Colors.black54, fontSize: 15.0),
+                          text: '\n\nIf you’re unable to find your member ID, please call Member Services at ',
+                        ),
+                        TextSpan(
+                          style: new TextStyle(color: Colors.red, fontSize: 15.0),
+                          text: '(800) 290-0523',
+                          recognizer: new TapGestureRecognizer()..onTap = () => {
+                            // Open Phone Dialer
+                            _launchURL("tel:(800) 290-0523")
                           },
                         ),
                       ]
