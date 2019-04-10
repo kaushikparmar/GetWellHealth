@@ -30,7 +30,6 @@ class _InAppBrowserState extends State<InAppBrowser> {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint('settings ${widget.url}');
     setState(() {
      this.url = widget.url; 
     });
@@ -54,7 +53,7 @@ class _InAppBrowserState extends State<InAppBrowser> {
                 child: Container(
                   margin: const EdgeInsets.all(10.0),
                   decoration: BoxDecoration(
-                    border: Border.all(color: Colors.redAccent)
+                    border: Border.all(color: Colors.black45)
                   ),
                   child: InAppWebView(
                     initialUrl: widget.url,

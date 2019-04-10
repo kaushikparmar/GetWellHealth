@@ -45,8 +45,26 @@ class _SidebarNavigationState extends State<SidebarNavigation> {
  Widget build(BuildContext context) {
   //  debugPrint('RO ${widget.currentRoute}');
     return new Drawer(
-        child: new ListView(
-          children: <Widget>[
+      child: new ListView(
+        children: <Widget>[
+          new Container(
+            alignment: Alignment.centerRight,
+            child: IconButton(
+              icon: Icon(Icons.menu, color: Colors.red),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            width: double.maxFinite,
+            height: 50.0,
+            decoration: const BoxDecoration(
+                  color: Colors.white,
+                  border: const Border(
+                    top: const BorderSide(width: 1.0, color: Colors.black54),
+                    bottom: const BorderSide(width: 1.0, color: Colors.black54)
+                  )
+            ),
+          ),
           new Container(
             child: new MaterialButton(
               minWidth: double.maxFinite,
@@ -61,9 +79,8 @@ class _SidebarNavigationState extends State<SidebarNavigation> {
               }
             ),
             decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.zero,
                   border: const Border(
-                    top: const BorderSide(width: 1.0, color: Colors.black54),
+                    // top: const BorderSide(width: 1.0, color: Colors.black54),
                     bottom: const BorderSide(width: 1.0, color: Colors.black54)
                   )
             ),

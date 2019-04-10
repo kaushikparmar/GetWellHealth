@@ -76,7 +76,6 @@ Widget body() {
                       hintStyle: TextStyle(fontSize: 20.0),
                       border: InputBorder.none,
                     ),
-                    autofocus: true,
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 22.0, decoration: TextDecoration.none),
                     keyboardType: TextInputType.text,
