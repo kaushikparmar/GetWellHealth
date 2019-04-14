@@ -5,8 +5,11 @@ dependencies:
   flutter:
     sdk: flutter
   splashscreen: ^1.2.0
+  # InAppBrowser to handle external links without living the application
   flutter_inappbrowser: 1.1.1
+  # URL Launcher into browser or native dialer
   url_launcher: 5.0.2
+  # Local Storage Handler
   shared_preferences: 0.5.1+2
 
   # The following adds the Cupertino Icons font to your application.
