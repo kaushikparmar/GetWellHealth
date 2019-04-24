@@ -201,6 +201,60 @@ Widget body(context) {
           ),
           child: new Row(
             // crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 5.0),
+                    child: new DropdownButton<String>(
+                      hint: Text('STATE',
+                        style: TextStyle(fontSize: 20.0),
+                      ),
+                      items: <String>['A', 'B', 'C', 'D'].map((String value) {
+                        return new DropdownMenuItem<String>(
+                          value: value,
+                          child: new Text(value),
+                        );
+                      }).toList(),
+                      onChanged: (_) {},
+                    )
+                  )
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 5.0),
+                    child: new TextFormField(
+                      decoration: InputDecoration(
+                        hintText: 'ZIP CODE',
+                        counterText: '',
+                        hintStyle: TextStyle(fontSize: 20.0),
+                        border: InputBorder.none,
+                      ),
+                      textAlign: TextAlign.left,
+                      style: TextStyle(fontSize: 22.0),
+                      keyboardType: TextInputType.text,
+                      cursorColor: Colors.black45,
+                      maxLength: 20,
+                      maxLines: 1,
+                    ),
+                  )
+                ),
+              ],
+            ),
+        ),
+        new Container(
+          alignment: Alignment.center,
+          // height: 50.0,
+          margin: EdgeInsets.all(3.0),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            border: Border.all(
+              color: Colors.black54,
+              width: 1.0,
+            )
+          ),
+          child: new Row(
+            // crossAxisAlignment: CrossAxisAlignment.center,
             // mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
                 Expanded(

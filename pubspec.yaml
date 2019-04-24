@@ -11,7 +11,11 @@ dependencies:
   url_launcher: 5.0.2
   # Local Storage Handler
   shared_preferences: 0.5.1+2
-
+  # Reactive Programming With Dart
+  rxdart: 0.21.0
+  # Handle Network Call
+  http: 0.12.0+2
+  dio: 2.1.2
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2

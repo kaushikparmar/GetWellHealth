@@ -2,7 +2,7 @@ import 'splashscreen.dart';
 import 'src/home.dart';
 import 'src/find-a-provider.dart';
 import 'src/current-prospective-member.dart';
-import 'src/login.dart';
+import 'src/login/login.dart';
 import 'src/registration.dart';
 import 'src/in-app-browser.dart';
 
