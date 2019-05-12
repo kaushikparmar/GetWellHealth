@@ -1,10 +1,6 @@
-import 'dart:developer';
 import 'dart:async';
 import 'validators.dart';
-import 'dart:convert';
 import 'package:rxdart/rxdart.dart';
-import '../environment/environment.dart';
-import 'package:dio/dio.dart';
 
 class LoginBloc extends Object with Validators implements BaseBloc {
   // Create a stream controller
@@ -23,44 +19,23 @@ class LoginBloc extends Object with Validators implements BaseBloc {
     //
   }
 
-  void fetchPost() async {
-    // Set default configs
-    BaseOptions options = new BaseOptions(
-        baseUrl: environmentURL,
-        connectTimeout: 10000,
-        receiveTimeout: 5000,
-        responseType: ResponseType.json
-    );
-    Dio dio = new Dio(options);
-    print('in fetchPost');
-    final params = {
-      'UserName': username,
-      'Password': password
-    };
+  
 
-    // Map<String, String> requestHeaders = {
-    //   "Accept": "application/json"
-    // };
+  // Future<String> fetchPost() async {
+  //   var response = await http.post(
+  //     Uri.encodeFull('$environmentURL/Login'),
+  //     headers: {
+  //       "Accept": "application/json",
+  //       "x-api-key": "Q2FyZUFQSVNlcnZpY2VzOkphbjIwMTg="
+  //     },
+  //     body: {
+  //       "UserName": _usernameController.value,
+  //       "Password": _passwordController.value
+  //     }
+  //   );
 
-    try {
-      Response response = await dio.post(
-        '/Login',
-        data: json.encode(params)
-      );
-      print(response);
-            debugger();
-      if (response.statusCode == 200) {
-        // If server returns an OK response, parse the JSON
-        print('LoginResponse');
-        print(response.data);
-        // return response.body;
-      } 
-    }
-    catch(e) {
-      // If that response was not OK, throw an error.
-      throw Exception('Failed to load post');
-    }
-  }
+  //   return json.encode(response);
+  // }
 
   @override
   void dispose() {

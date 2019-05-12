@@ -5,10 +5,12 @@ import 'src/current-prospective-member.dart';
 import 'src/login/login.dart';
 import 'src/registration.dart';
 import 'src/in-app-browser.dart';
+import 'package:careington/src/member-home/member-home.dart';
 
 final appRoutes = {
   '/': (context) => AfterSplash(),
   '/home': (context) => MyHomePage(title: 'Careington'),
+  '/member-home': (context) => MemberHome(title: 'Careington'),
   '/login': (context) => Login(title: 'Login'),
   '/registration': (context) => Registration(title: 'Registration'),
   '/find-a-provider': (context) => FindAProvider(title: 'FindAProvider'),
