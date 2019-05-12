@@ -12,7 +12,7 @@ class NetworkUtil {
   final JsonDecoder _decoder = new JsonDecoder();
 
   Future<dynamic> get(String api) {
-    return http.get('$environmentURL/api').then((http.Response response) {
+    return http.get('$environmentURL/$api').then((http.Response response) {
       final String res = response.body;
       final int statusCode = response.statusCode;
 

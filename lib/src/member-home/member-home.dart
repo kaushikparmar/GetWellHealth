@@ -34,12 +34,12 @@ class _MemberHome extends State<MemberHome> {
 
   @override
   void initState() {
+    super.initState();
     setState(() {
       CommonService _commonService = new CommonService();
       var userDetails = _commonService.getValue("LoginDetails");
       memberName = userDetails["FirstName"] + ' ' + userDetails["LastName"];
     });
-    super.initState();
   }
 
   // Body Widget
