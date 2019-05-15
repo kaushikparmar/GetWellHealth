@@ -1,5 +1,4 @@
 # GetWellHealth
-
 Get Healthcare services from your nearby providers.
 
 ## Getting Started
