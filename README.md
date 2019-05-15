@@ -1,9 +1,7 @@
 # GetWellHealth
 
-A new Flutter project.
+Get Healthcare services from your nearby providers.
 
 ## Getting Started
 
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
-
+A hybrid mobile app with flutter. 
