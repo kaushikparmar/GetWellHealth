@@ -1,7 +1,7 @@
-import 'package:careington/src/utils/common-service.dart';
 import 'package:flutter/material.dart';
 import '../sidebar-navigation.dart';
 import '../footer.dart';
+import 'package:careington/src/utils/common-service.dart';
 
 class MemberHome extends StatefulWidget {
   MemberHome({Key key, this.title}) : super(key: key);
@@ -84,7 +84,7 @@ class _MemberHome extends State<MemberHome> {
                 color: Colors.red,
                 textColor: Colors.white,
                 onPressed: () {
-                Navigator.pushNamed(context, '/login'); 
+                Navigator.pushNamed(context, '/member-id-cards'); 
                 }),
             decoration: const BoxDecoration(
                 border: const Border(

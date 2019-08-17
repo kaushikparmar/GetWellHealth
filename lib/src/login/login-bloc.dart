@@ -14,29 +14,6 @@ class LoginBloc extends Object with Validators implements BaseBloc {
   StreamSink<String> get usernameChanged => _usernameController.sink;
   StreamSink<String> get passwordChanged => _passwordController.sink;
 
-
-  void submit() {
-    //
-  }
-
-  
-
-  // Future<String> fetchPost() async {
-  //   var response = await http.post(
-  //     Uri.encodeFull('$environmentURL/Login'),
-  //     headers: {
-  //       "Accept": "application/json",
-  //       "x-api-key": "Q2FyZUFQSVNlcnZpY2VzOkphbjIwMTg="
-  //     },
-  //     body: {
-  //       "UserName": _usernameController.value,
-  //       "Password": _passwordController.value
-  //     }
-  //   );
-
-  //   return json.encode(response);
-  // }
-
   @override
   void dispose() {
     _usernameController?.close();

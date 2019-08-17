@@ -16,10 +16,22 @@ class Login extends StatefulWidget {
 }
 
 class _Login extends State<Login> {
+  // Login Bloc
+  final loginBloc = LoginBloc();
+  final usernameController = TextEditingController();
+  final passwordController = TextEditingController();  
+
+  // Handle Focus Node
   FocusNode _usernameFocusNode = new FocusNode();
   FocusNode _passwordFocusNode = new FocusNode();
+  // Network Service
+  NetworkUtil _netUtil = new NetworkUtil();
+  // Common Service
+  CommonService _commonService = new CommonService();
   //handler that we will use to show and hide widget
   ProgressBarHandler _handler;
+  // Is Remember Me
+  bool isRememberMe = false;
   
   @override
   Widget build(BuildContext context) {
@@ -34,7 +46,7 @@ class _Login extends State<Login> {
                       backgroundColor: Colors.white,
                     ),
                     drawer: SidebarNavigation(ModalRoute.of(context).settings.name),
-                    body: body(_handler),
+                    body: body(context),
                     bottomNavigationBar: footer(context),
                   );
     var progressBar = ModalRoundedProgressBar(
@@ -50,11 +62,21 @@ class _Login extends State<Login> {
     ); 
   }
 
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      CommonService _commonService = new CommonService();
+      bool checkRememberMe = _commonService.getValue('isRememberMe');
+      if (checkRememberMe == true) {
+        isRememberMe = _commonService.getValue('isRememberMe');
+        usernameController.text = _commonService.getValue('Username');
+      }
+    });
+  }
+
   void fetchPost(String uname, String pwd) {
-
-    NetworkUtil _netUtil = new NetworkUtil();
-    CommonService _commonService = new CommonService();
-
+    _handler.show();
     _netUtil.post('Login', headers: {}, body: {
       "UserName": uname,
       "Password": pwd
@@ -65,18 +87,20 @@ class _Login extends State<Login> {
       }
       // Handle Success
       if (res["Success"] == "true") {
+        // Set LoginDetails
         _commonService.setValue("LoginDetails", res);
+        // Redirect to member home        
         Navigator.pushNamed(context, '/member-home');
       }
       // Handle Failure
       if (res["Success"] == "false") {
       }
+      _handler.dismiss();
     });
   }
 
   // Body Widget
-  Widget body(progress) {
-    final loginBloc = LoginBloc();
+  Widget body(context) {
     String username;
     String password;
     return new Container(
@@ -98,9 +122,6 @@ class _Login extends State<Login> {
             child: StreamBuilder<String>(
               stream: loginBloc.username,
               builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  username = snapshot.data;
-                }
                 return new TextField(
                   onChanged: (str) => loginBloc.usernameChanged.add(str),
                   decoration: InputDecoration(
@@ -110,6 +131,7 @@ class _Login extends State<Login> {
                     border: InputBorder.none,
                     errorText: snapshot.error
                   ),
+                  controller: usernameController,
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 22.0, decoration: TextDecoration.none),
                   keyboardType: TextInputType.text,
@@ -129,9 +151,6 @@ class _Login extends State<Login> {
             child: StreamBuilder<String>(
               stream: loginBloc.password,
               builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  password = snapshot.data;
-                }
                 return new TextField(
                   onChanged: (str) => loginBloc.passwordChanged.add(str),
                   decoration: InputDecoration(
@@ -141,6 +160,7 @@ class _Login extends State<Login> {
                     border: InputBorder.none,
                     errorText: snapshot.error
                   ),
+                  controller: passwordController,
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 22.0),
                   keyboardType: TextInputType.text,
@@ -166,9 +186,8 @@ class _Login extends State<Login> {
                   onPressed: () {
                     _usernameFocusNode.unfocus();
                     _passwordFocusNode.unfocus(); 
-                    if (username != null && password != null) {
-                      progress.show();
-                      fetchPost(username, password);
+                    if (usernameController.text != null && passwordController.text != null) {
+                      fetchPost(usernameController.text, passwordController.text);
                     }
                   }
                 );
@@ -192,9 +211,17 @@ class _Login extends State<Login> {
               children: <Widget>[
                 Switch(
                   activeColor: Colors.red,
-                  value: false,
+                  value: isRememberMe,
                   onChanged: (bool val){
-                    //
+                    if (val) {
+                      setState(() {
+                        isRememberMe = val; 
+                      });
+                      // Set Remember Me
+                      _commonService.setValue('isRememberMe', val);
+                      // Set Username
+                      _commonService.setValue('Username', usernameController.text);
+                    }
                   },
                 ),
                 Text('Remember Username')

@@ -5,7 +5,8 @@ import 'src/current-prospective-member.dart';
 import 'src/login/login.dart';
 import 'src/registration.dart';
 import 'src/in-app-browser.dart';
-import 'package:careington/src/member-home/member-home.dart';
+import 'src/member-home/member-home.dart';
+import 'src/member-id-cards/member-id-cards.dart';
 
 final appRoutes = {
   '/': (context) => AfterSplash(),
@@ -15,5 +16,6 @@ final appRoutes = {
   '/registration': (context) => Registration(title: 'Registration'),
   '/find-a-provider': (context) => FindAProvider(title: 'FindAProvider'),
   '/current-prospective-member': (context) => CurrentProspectiveMember(title: 'CurrentProspectiveMember'),
-  '/in-app-browser': (context) => InAppBrowser("https://www1.careington.com/mobile/search.aspx")
+  '/in-app-browser': (context) => InAppBrowser("https://www1.careington.com/mobile/search.aspx"),
+  '/member-id-cards': (context) => MemberIDCards()
 };
